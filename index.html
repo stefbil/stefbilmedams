@@ -40,25 +40,30 @@
         <a href="#genai">GenAI Statement</a>
         <a href="#references">References</a>
         <a href="#parameters">Parameters</a>
-        <a href="https://github.com/stefbil/Adaptive-Media-Systems-Adaptive-DeEsser" target="_blank">Code Repository</a>
+        <a href="#code-availability">Code Availability</a>
     </nav>
 
     <main>
 
         <section id="abstract" class="abstract">
             <h2>Abstract</h2>
-            <p>High-fidelity vocal processing is frequently compromised by sibilance, a
-                phenomenon characterized by stochastic high-frequency energy that presents unique dynamic range challenges.
-                While traditional de-essing techniques often rely on static frequency bands,
-                they fail to account for inter-speaker variability and changing dynamics.
-                This project presents an adaptive real-time de-essing application, developed using the JUCE framework,
-                which automatically detects and suppresses sibilant frequencies. The proposed methodology integrates
-                a derivative-based frequency tracking algorithm to estimate the spectral centroid without the computational
-                overhead of the Fast Fourier Transform (FFT). This is coupled with a dual-path envelope detection system
-                and a relative threshold logic to distinguish sibilance from the wideband signal.
-                Additionally, a dynamic harmonic exciter is implemented to restore high-frequency presence during non-sibilant periods.
-                Objective spectral analysis confirms the system’s ability to selectively
-                attenuate energy in the 6–11 kHz range while maintaining spectral transparency and minimizing artifacts.</p>
+            <p>High-fidelity vocal processing is frequently compromised by sibilance, a phenomenon characterized by
+                stochastic high-frequency energy that presents unique dynamic range challenges. While traditional
+                de-essing techniques often rely on static frequency bands, they fail to account for inter-speaker
+                variability and changing dynamics. This project presents an adaptive real-time de-essing application,
+                developed using the JUCE framework, which automatically detects and suppresses sibilant frequencies. The
+                proposed methodology integrates a derivative-based frequency tracking algorithm to estimate the spectral
+                centroid without the computational overhead of the Fast Fourier Transform (FFT). This is coupled with a
+                dual-path envelope detection system and a relative threshold logic to distinguish sibilance from the
+                wideband signal. Additionally, a dynamic harmonic exciter is implemented to restore high-frequency
+                presence during non-sibilant periods. Objective spectral analysis confirms the system’s ability to
+                selectively attenuate energy in the 6–11 kHz range while maintaining spectral transparency and
+                minimizing artifacts.</p>
+
+            <div class="keywords" style="margin-top: 1.5rem; font-size: 0.9rem; font-style: normal;">
+                <strong>Keywords:</strong> Adaptive Signal Processing, De-essing, Digital Audio Effects, Harmonic
+                Excitation, Real-time Application, Frequency Estimation, Vocal Processing
+            </div>
         </section>
 
         <section id="introduction">
@@ -92,9 +97,12 @@
 
         <section id="methodology">
             <h2>III. Methodology</h2>
-            <p>To test this hypothesis, a real-time audio VST3 plugin and standalone application was developed using C++
-                and the JUCE framework. The methodology integrates Digital Signal Processing (DSP) theory regarding
+            <p>To test this hypothesis, a real-time audio VST3 plugin was developed using C++ and the JUCE framework<a
+                    href="#fn1" id="ref1"><sup>1</sup></a>. The methodology integrates Digital Signal Processing (DSP)
+                theory regarding
                 Stable Variable Filter (SVF) with software engineering patterns for real-time performance [3].</p>
+            <p id="fn1" style="font-size: 0.8rem; margin-top: 0.5rem; color: #666;"><sup>1</sup> Source code available
+                at: <a href="https://stefbil.github.io/stefbilmedams">https://stefbil.github.io/stefbilmedams</a></p>
 
             <h3>A. Signal Decomposition</h3>
             <p>The input signal \( x[n] \) is split into two parallel analysis paths:</p>
@@ -406,8 +414,9 @@
             <p>The following tools were used:</p>
             <ul>
                 <li><strong>Github Copilot:</strong> Supported automatic code completion in the working environment</li>
-                <li><strong>ChatGPT 5:</strong> Assisted in debugging parts of the code.</li>
-                <li><strong>Gemini 2.5:</strong> Assisted in debugging parts of the code, implementing the spectrogram
+                <li><strong>OpenAI ChatGPT 5:</strong> Assisted in debugging parts of the code.</li>
+                <li><strong>Google Gemini 2.5:</strong> Assisted in debugging parts of the code, implementing the
+                    spectrogram
                     visualization and helped structure a sibilant rich text prompt for the ElevenLabs model.</li>
                 <li><strong>ElevenLabs Text-to-Speech v3:</strong> Generated sibilant rich speech to use in the Results
                     section.</li>
@@ -557,10 +566,10 @@
                     </tr>
                     <tr>
                         <td>Mode</td>
-                        <td>0, 1, 2</td>
-                        <td>2</td>
+                        <td>1, 2, 3</td>
+                        <td>3</td>
                         <td>---</td>
-                        <td>Processing topology (0=Split-Band, 1=Wideband, 2=Parametric)</td>
+                        <td>Processing topology (1=Split-Band, 2=Wideband, 3=Parametric)</td>
                     </tr>
                     <tr>
                         <td>Auto Freq</td>
@@ -578,6 +587,30 @@
                     </tr>
                 </tbody>
             </table>
+        </section>
+
+        <section id="code-availability">
+            <h2>Code Availability</h2>
+            <p>The source code, plugin binaries, and project documentation are available online.</p>
+
+            <p><strong>GitHub Repository:</strong><br>
+                <a
+                    href="https://github.com/stefbil/Adaptive-Media-Systems-Adaptive-DeEsser">https://github.com/stefbil/Adaptive-Media-Systems-Adaptive-DeEsser</a>
+            </p>
+
+            <p><strong>Project Webpage:</strong><br>
+                <a href="https://stefbil.github.io/stefbilmedams">https://stefbil.github.io/stefbilmedams</a>
+            </p>
+
+            <p><strong>Project Video:</strong></p>
+            <div
+                style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 0.5rem; margin-bottom: 0.5rem;">
+                <iframe src="https://www.youtube-nocookie.com/embed/sNrpap-54xU?si=D3uftj6nDSVZ3NEE"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+            </div>
         </section>
 
     </main>
@@ -621,6 +654,4 @@
 
 </body>
 
-
 </html>
-
