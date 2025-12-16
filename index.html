@@ -47,11 +47,18 @@
 
         <section id="abstract" class="abstract">
             <h2>Abstract</h2>
-            <p>The development of high fidelity vocal processing tools remains one of the most persistent challenges in
-                digital signal processing. Sibilance poses a unique dynamic range problem. This challenge is to maintain
-                consistent vocal clarity across changing dynamics and timbres without manual equalization or multiple
-                processors. This project proposes an adaptive vocal de-essing processor that automatically detects
-                sibilant audio, suppresses the signal, and dynamically applies excitation when needed.</p>
+            <p>High-fidelity vocal processing is frequently compromised by sibilance, a
+                phenomenon characterized by stochastic high-frequency energy that presents unique dynamic range challenges.
+                While traditional de-essing techniques often rely on static frequency bands,
+                they fail to account for inter-speaker variability and changing dynamics.
+                This project presents an adaptive real-time de-essing application, developed using the JUCE framework,
+                which automatically detects and suppresses sibilant frequencies. The proposed methodology integrates
+                a derivative-based frequency tracking algorithm to estimate the spectral centroid without the computational
+                overhead of the Fast Fourier Transform (FFT). This is coupled with a dual-path envelope detection system
+                and a relative threshold logic to distinguish sibilance from the wideband signal.
+                Additionally, a dynamic harmonic exciter is implemented to restore high-frequency presence during non-sibilant periods.
+                Objective spectral analysis confirms the system’s ability to selectively
+                attenuate energy in the 6–11 kHz range while maintaining spectral transparency and minimizing artifacts.</p>
         </section>
 
         <section id="introduction">
@@ -616,3 +623,4 @@
 
 
 </html>
+
