@@ -17,6 +17,12 @@ body {
     padding: 0;
 }
 
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
 header {
     background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     color: #ffffff;
@@ -204,13 +210,77 @@ footer p {
     margin: 0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
+    header {
+        padding: 1.5rem 1rem;
+    }
+
     header h1 {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    header .meta {
+        padding: 0.75rem;
+    }
+
+    nav {
+        display: flex;
+        flex-flow: row nowrap;
+        /* Force single line */
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0.5rem 0;
+        text-align: left;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar Chrome/Safari */
     }
 
     nav a {
+        display: inline-block;
+        margin: 0 0.8rem;
+        font-size: 0.85rem;
+        padding: 0.5rem 0;
+        flex-shrink: 0;
+    }
+
+    /* Add left margin to first item to align with content */
+    nav a:first-child {
+        margin-left: 1rem;
+    }
+
+    /* Add right margin to last item */
+    nav a:last-child {
+        margin-right: 1rem;
+    }
+
+    main {
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .abstract {
+        padding: 1rem;
+        border-left-width: 3px;
+    }
+
+    table {
         display: block;
-        margin: 0.5rem 0;
+        overflow-x: auto;
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    .math-display {
+        font-size: 0.85rem;
     }
 }
